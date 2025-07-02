@@ -24,3 +24,34 @@ a.splice(2, 0, 'JS');
 console.log(a);          // [[Function (anonymous)], true, 'JS', 0]
 a.splice(-1, 0, 4, 2);
 console.log(a);          // [[Function (anonymous)], true, 'JS', 4, 2, 0]
+
+// Slice
+console.log(a.slice(1, 4));  // [true, 'JS', 4]
+console.log(a.slice(-2));    // [2, 0]
+console.log(a);              // [[Function (anonymous)], true, 'JS', 4, 2, 0]
+
+// Concat
+let d = [1, 2];
+let e = { 0: 7, 1: 8 }
+let f = { 0: 7, 1: 8, length: 2, [Symbol.isConcatSpreadable]: true }
+console.log(d.concat([3, 4]));          // [1, 2, 3, 4]
+console.log(d.concat([3, 4], [5, 6]));  // [1, 2, 3, 4, 5, 6]
+console.log(d.concat([3, 4], 5, 6));    // [1, 2, 3, 4, 5, 6]
+console.log(d.concat(e));               // [1, 2, { '0': 7, '1': 8 }]
+console.log(d.concat(f));               // [1, 2, 7, 8]
+
+// forEach
+['VAK', '42', 'JS'].forEach(console.log);
+/*
+VAK 0 ['VAK', '42', 'JS']
+42  1 ['VAK', '42', 'JS']
+JS  2 ['VAK', '42', 'JS']
+*/
+['VAK', '42', 'JS'].forEach((item, index, array) => {
+  console.log(`${item} - ${index} - ${array}`);
+});
+/*
+VAK - 0 - VAK,42,JS
+42  - 1 - VAK,42,JS
+JS  - 2 - VAK,42,JS
+*/
