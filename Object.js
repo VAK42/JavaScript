@@ -92,3 +92,41 @@ console.log(p.A);  // True
 // Optional Chaining
 console.log(p?.A)  // True
 console.log(p?.K)  // Undefined
+
+// Symbol
+let q = Symbol('JS');
+let r = Symbol('JS');
+console.log(q == r);            // False
+console.log(q);                 // Symbol(JS)
+console.log(q.toString());      // Symbol(JS)
+console.log(q.description);     // JS
+let s = Symbol.for('JS');
+let t = Symbol.for('JS');
+console.log(s === t);           // True
+console.log(Symbol.keyFor(s));  // JS
+console.log(Symbol.keyFor(q));  // Undefined
+let u = {
+  S: 'AB',
+  A: 1000,
+  [Symbol.toPrimitive](h) {
+    return h == 'string' ? this.S : this.A;
+  },
+  toString() {
+    return this.S;
+  },
+  valueOf() {
+    return this.A;
+  }
+};
+console.log(+u);                // Hint: number - valueOf -> 1000
+console.log(u + 500);           // Hint: default - valueOf -> 1500
+console.log(u);                 // Hint: string - toString
+/*
+{
+  S: 'AB',
+  A: 1000,
+  toString: [Function: toString],
+  valueOf: [Function: valueOf],
+  [Symbol(Symbol.toPrimitive)]: [Function: [Symbol.toPrimitive]]
+}
+*/
