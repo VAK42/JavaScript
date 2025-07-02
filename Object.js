@@ -51,3 +51,44 @@ for (let k in b) {
 | A   | [Function: A] |
 | B   | [Function: B] |
 */
+
+// Comparison
+let f = {};
+let g = {};
+let h = f;
+console.log(f === g);  // False
+console.log(f === h);  // True
+
+// Merging
+let i = { A: 'A' };
+let j = { B: 'B' };
+let l = { C: 'C' };
+Object.assign(i, j, l);
+console.log(i.A);  // A
+console.log(i.B);  // B
+console.log(i.C);  // C
+let m = Object.assign({}, i);
+console.log(m.A);  // A
+console.log(m.B);  // B
+console.log(m.C);  // C
+Object.assign(i, { A: 'AB' });
+console.log(i.A);  // AB
+let n = structuredClone(i);
+console.log(i.A === m.A);  // False
+console.log(i.A === n.A);  // True
+
+// Constructor
+function o(S) {
+  this.S = S;
+  this.A = true;
+  this.B = function () {
+    console.log(this.S);
+  };
+}
+let p = new o('S');
+console.log(p.S);  // S
+console.log(p.A);  // True
+
+// Optional Chaining
+console.log(p?.A)  // True
+console.log(p?.K)  // Undefined
