@@ -1,7 +1,7 @@
 'use strict';
 
-var x = 0;
-let y = 0;
+var x = 'J';
+let y = 'S';
 const z = 0;
 /*
 | Feature       | var                   | let                       | const                     |
