@@ -7,7 +7,7 @@ a.push(...b);
 a.pop();
 a.unshift(...b);
 a.shift();
-console.log(a);  // [false, 'VAK', { JS: '42' }, [Function (anonymous)], true, 0, 42]
+console.log(a);          // [false, 'VAK', { JS: '42' }, [Function (anonymous)], true, 0, 42]
 
 // Splice
 delete a[6];
@@ -55,3 +55,40 @@ VAK - 0 - VAK,42,JS
 42  - 1 - VAK,42,JS
 JS  - 2 - VAK,42,JS
 */
+
+// Search
+console.log(d.indexOf(null));      // -1
+console.log(d.indexOf(2));         // 1
+console.log(d.lastIndexOf(2));     // 0
+console.log(d.includes(1));        // True
+console.log([NaN].indexOf(NaN));   // -1 - NaN -> 0
+console.log([NaN].includes(NaN));  // True
+let g = [
+  { A: 0, B: 'VAK' },
+  { A: 2, B: 'K42' },
+  { A: 4, B: 'VAK' },
+  { A: 8, B: false }
+];
+console.log(g.find(item => item.A == 0));               // { A: 0, B: 'VAK' }
+console.log(g.find(item => item.A == 1));               // Undefined
+console.log(g.findIndex(item => item.B == 'VAK'));      // 0
+console.log(g.findIndex(item => item.B == true));       // -1
+console.log(g.findLastIndex(item => item.B == 'VAK'));  // 2
+console.log(g.findLastIndex(item => item.B == true));   // -1
+console.log(g.filter(item => item.A < 4));              // [{ A: 0, B: 'VAK' }, { A: 2, B: 'K42' }]
+console.log(g.filter(item => item.A > 8));              // []
+
+// Transform
+console.log(['VAK', '42', 'JS'].map(item => item));         // ['VAK', '42', 'JS']
+console.log(['VAK', '42', 'JS'].map(item => item.length));  // [3, 2, 2]
+console.log([1, 2, 14].sort());                             // [1, 14, 2]
+function h(a, b) {
+  if (a > b) return 1;
+  if (a == b) return 0;
+  if (a < b) return -1;
+}
+console.log([1, 2, 14].sort(h));                                  // [1, 2, 14]
+console.log([1, 2, 14].sort((a, b) => a - b))                     // [1, 2, 14]
+console.log(['Ö', 'A', 'V'].sort((a, b) => a > b ? 1 : -1));      // ['A', 'V', 'Ö']
+console.log(['Ö', 'A', 'V'].sort((a, b) => a.localeCompare(b)));  // ['A', 'Ö', 'V']
+console.log([1, 2, 8, 6, 4].reverse());                           // [4, 6, 8, 2, 1]
