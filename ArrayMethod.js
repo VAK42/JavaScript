@@ -92,3 +92,45 @@ console.log([1, 2, 14].sort((a, b) => a - b))                     // [1, 2, 14]
 console.log(['Ö', 'A', 'V'].sort((a, b) => a > b ? 1 : -1));      // ['A', 'V', 'Ö']
 console.log(['Ö', 'A', 'V'].sort((a, b) => a.localeCompare(b)));  // ['A', 'Ö', 'V']
 console.log([1, 2, 8, 6, 4].reverse());                           // [4, 6, 8, 2, 1]
+let i = 'VAK, 42, JS'.split(', ');
+for (let j of i) {
+  console.log(j);                                                 // VAK 42 JS
+}
+console.log('VAK, 42, JS'.split(', ', 2));                        // ['VAK', '42']
+console.log('VAK42'.split(''));                                   // ['V', 'A', 'K', '4', '2']
+console.log(['VAK', '42', 'JS'].join('; '));                      // VAK; 42; JS
+console.log([0, 2, 8, 6, 4].reduce((a, b) => a + b, 0));          // 20
+/*
+| Step | Accumulator (a) | Current Value (b) | Result (a + b) |
+|------|-----------------|-------------------|----------------|
+| 1st  | 0               | 0                 | 0              |
+| 2nd  | 0               | 2                 | 2              |
+| 3rd  | 2               | 8                 | 10             |
+| 4th  | 10              | 6                 | 16             |
+| 5th  | 16              | 4                 | 20             |
+*/
+console.log([0, 2, 8, 6, 4].reduce((a, b) => a + b));             // 20
+/*
+| Step | Accumulator (a) | Current Value (b) | Result (a + b) |
+|------|-----------------|-------------------|----------------|
+| 1st  | 0               | 2                 | 2              |
+| 2nd  | 2               | 8                 | 10             |
+| 3rd  | 10              | 6                 | 16             |
+| 4th  | 16              | 4                 | 20             |
+*/
+console.log([0, 2, 8, 6, 4].reduceRight((a, b) => a + b, 0));     // 20
+/*
+| Step | Accumulator (a) | Current Value (b) | Result (a + b) |
+|------|-----------------|-------------------|----------------|
+| 1st  | 0               | 4                 | 4              |
+| 2nd  | 4               | 6                 | 10             |
+| 3rd  | 10              | 8                 | 18             |
+| 4th  | 18              | 2                 | 20             |
+| 5th  | 20              | 0                 | 20             |
+*/
+console.log([].reduce((a, b) => a + b));  // Error
+
+console.log(typeof {});          // Object
+console.log(typeof []);          // Object
+console.log(Array.isArray({}));  // False
+console.log(Array.isArray([]));  // True
