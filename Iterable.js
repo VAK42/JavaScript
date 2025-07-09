@@ -21,7 +21,7 @@ a[Symbol.iterator] = function () {
 };
 
 for (let f of a) {
-  console.log(f);
+  console.log(f);  // 1 → 2 → 3 → 4 → 5
 }
 
 // B
@@ -42,17 +42,17 @@ let g = {
 };
 
 for (let k of g) {
-  console.log(k);
+  console.log(k);  // 1 → 2 → 3 → 4 → 5
 }
 
 // C
 for (let l of 'VAK') {
-  console.log(l);
+  console.log(l);  // V → A → K
 }
 
 let m = '42';
 for (let n of m) {
-  console.log(n);
+  console.log(n);  // 4 → 2
 }
 
 // D
@@ -61,7 +61,7 @@ let p = o[Symbol.iterator]();
 while (true) {
   let q = p.next();
   if (q.done) break;
-  console.log(q.value);
+  console.log(q.value);  // V → A → K → 4 → 2
 }
 
 // E
@@ -71,34 +71,34 @@ let r = {
   length: 2
 };
 
-for (let s of r) { }
+for (let s of r) { }  // Error
 
 let t = Array.from(r);
-console.log(t);
+console.log(t);  // ['VAK', '42']
 
 let u = Array.from(g);
-console.log(u);
+console.log(u);  // [1, 2, 3, 4, 5]
 
 let v = Array.from(g, w => w * w);
-console.log(v);
+console.log(v);  // [1, 4, 9, 16, 25]
 
 // F
 let x = 'VAK';
 let y = Array.from(x);
-console.log(y[0]);
-console.log(y[1]);
-console.log(y.length);
+console.log(y[0]);      // V
+console.log(y[1]);      // A
+console.log(y.length);  // 3
 
 let z = 'VAK';
 let A = [];
 for (let B of z) {
   A.push(B);
 }
-console.log(A);
+console.log(A);  // ['V', 'A', 'K']
 
 function C(D, E, F) {
   return Array.from(D).slice(E, F).join('');
 }
 let G = 'VAK';
-console.log(C(G, 1, 3));
-console.log(G.slice(1, 3));
+console.log(C(G, 1, 3));     // AK
+console.log(G.slice(1, 3));  // AK
