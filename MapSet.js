@@ -105,7 +105,7 @@ console.log(r.has(t));     // False
 r.clear();
 console.log(r.size);       // 0
 
-// 
+// Set Iteration
 let w = new Set(['VAK', 'JS', 42]);
 
 for (let x of w) console.log(x);  // VAK → JS → 42
