@@ -1,0 +1,62 @@
+'use strict';
+
+let a = new Date();
+let b = new Date(0);
+let c = new Date("2025-08-10T10:00:00Z");
+let d = new Date(2025, 6, 10, 10, 30, 15, 500);
+let e = Date.now();
+
+console.log(a.getFullYear());
+console.log(a.getMonth());
+console.log(a.getDate());
+console.log(a.getHours());
+console.log(a.getMinutes());
+console.log(a.getSeconds());
+console.log(a.getMilliseconds());
+console.log(a.getDay());
+console.log(a.getTime());
+console.log(a.getTimezoneOffset());
+console.log(a.getUTCFullYear());
+console.log(a.getUTCMonth());
+console.log(a.getUTCDate());
+console.log(a.getUTCHours());
+console.log(a.getUTCMinutes());
+console.log(a.getUTCSeconds());
+console.log(a.getUTCMilliseconds());
+console.log(a.getUTCDay());
+
+a.setFullYear(2030);
+a.setMonth(11);
+a.setDate(25);
+a.setHours(14, 45, 30, 250);
+a.setMinutes(50, 40, 100);
+a.setSeconds(59, 900);
+a.setMilliseconds(750);
+a.setTime(1600000000000);
+console.log(a);
+a.setUTCFullYear(2040, 1, 20);
+a.setUTCMonth(2, 15);
+a.setUTCDate(5);
+a.setUTCHours(12, 30, 0, 0);
+a.setUTCMinutes(15, 10, 500);
+a.setUTCSeconds(45, 124);
+a.setUTCMilliseconds(420);
+a.setTime(1700000000000);
+console.log(a);
+console.log(+a);
+
+let f = new Date(2025, 0, 32);
+console.log(f);
+f.setDate(f.getDate() + 2);
+console.log(f);
+f.setDate(1);
+console.log(f);
+f.setDate(0);
+console.log(f);
+f.setDate(-1);
+console.log(f);
+
+let g = '2025-08-10T12:55:50.418-08:00';
+console.log(Date.parse(g));
+console.log(new Date(Date.parse(g)));
+console.log(new Date(g));
