@@ -82,3 +82,20 @@ fetch("https://jsonplaceholder.typicode.com/posts")
   .then((V) => { console.log(V); })
   .catch((W) => { console.error('X', W); })
   .finally(() => { console.log('Y'); });
+
+// Promisification
+function Z(A0) {
+  return function (...B0) {
+    return new Promise((C0, D0) => {
+      function E0(F0, G0) {
+        if (F0) {
+          D0(F0);
+        } else {
+          C0(G0);
+        }
+      }
+      B0.push(E0);
+      A0.call(this, ...B0);
+    });
+  };
+}
