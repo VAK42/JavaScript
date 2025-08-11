@@ -61,7 +61,7 @@ console.log(d.indexOf(null));      // -1
 console.log(d.indexOf(2));         // 1
 console.log(d.lastIndexOf(2));     // 0
 console.log(d.includes(1));        // True
-console.log([NaN].indexOf(NaN));   // -1 - NaN -> 0
+console.log([NaN].indexOf(NaN));   // -1
 console.log([NaN].includes(NaN));  // True
 let g = [
   { A: 0, B: 'VAK' },
