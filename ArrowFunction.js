@@ -1,5 +1,6 @@
 'use strict'
 
+// Arrow Functions Inherit 'this' From Their Enclosing Scope
 let a = {
   b: 'VAK',
   c: ['JS', 'K42', '42'],
@@ -8,43 +9,19 @@ let a = {
   }
 };
 a.d();
-/*
-VAK: JS
-VAK: K42
-VAK: 42
-*/
 
+// Regular Functions Create Their Own 'this' Context
 let f = {
   g: 'VAK',
   h: ['JS', 'K42', '42'],
   i() {
     this.h.forEach(function (j) {
       console.log(this.g + ': ' + j);
-    }, this);
+    }, this);  // The Second Parameter 'this' Is Required For The Callback Otherwise It Will Return An Error When Called
   }
 };
 f.i();
-/*
-VAK: JS
-VAK: K42
-VAK: 42
-*/
 
-function k(l, m) {
-  return function (...n) {
-    let o = this;
-    setTimeout(function () {
-      l.apply(o, n);
-    }, m);
-  };
-}
-
-function p(q) {
-  console.log('VAK' + q);
-}
-
-let r = k(p, 2000);
-r('42');  // VAK42
 /*
 Not Have 'this'
 Not Have Arguments
