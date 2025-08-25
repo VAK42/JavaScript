@@ -4,12 +4,13 @@
 async function a() {
   return 1;
 }
-a().then(b => { console.log(b); });
+a().then(b => { console.log(b); });  // 1
 
 async function c() {
   return Promise.resolve(1);
 }
-c().then(d => { console.log(d); });
+c().then(d => { console.log(d); });  // 1
+// Any Async Function Automatically Returns A Promise => Both Are The Same
 
 // Await
 async function e() {
@@ -30,7 +31,7 @@ function k() {
   let B0 = await fetch('https://jsonplaceholder.typicode.com/posts');
   let C0 = await B0.json();
   console.log(C0);
-})();
+})();  // IIFE
 
 // Thenable
 class D0 {
@@ -48,6 +49,10 @@ async function I0() {
   console.log(J0);
 }
 I0();
+/*
+G0: onFulfilled Function - Resolve Callback
+H0: onRejected Function - Reject Callback
+*/
 
 // Class
 class K0 {
@@ -57,4 +62,4 @@ class K0 {
 }
 new K0()
   .L0()
-  .then(M0 => { console.log(M0); });
+  .then(M0 => { console.log(M0); });  // 1
