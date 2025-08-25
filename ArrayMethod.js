@@ -63,6 +63,10 @@ console.log(d.lastIndexOf(2));     // 0
 console.log(d.includes(1));        // True
 console.log([NaN].indexOf(NaN));   // -1
 console.log([NaN].includes(NaN));  // True
+/*
+indexOf() Uses Strict Equality Comparison - NaN === NaN => False
+includes() Uses SameValueZero Comparison  - NaN Is Considered The Same As NaN
+*/
 let g = [
   { A: 0, B: 'VAK' },
   { A: 2, B: 'K42' },
