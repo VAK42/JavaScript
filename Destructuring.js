@@ -189,3 +189,7 @@ function H1({ I1 = 'K42', J1 = 800, K1 = 200 } = {}) {
 }
 H1({});  // K42 → 800 → 200
 H1();    // K42 → 800 → 200
+/*
+No Argument -> undefined
+{} Participates -> Argument => {}
+*/
