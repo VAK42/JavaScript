@@ -1,7 +1,7 @@
 'use strict'
 
 let a = function (x) {
-  console.log(x);               // 4
+  console.log(x);
   return x;
 };
 
@@ -17,17 +17,22 @@ let b = function (c) {
   };
 };
 a = b(a);
-console.log(a(4));              // 4
-console.log('JS' + a(1));       // JS1
-console.log(a(2));              // 2
-console.log('JS' + a(2));       // JS2
+console.log(a(4));
+/*
+function (c): function (a) - Original Function <> Before Wrapping
+d: Map - Cache
+If Map Has Key: 4 -> Return Cached Value: 4
+Otherwise -> Call Original a(4)
+Map Sets Key(Input): 4 & Value(Output): 4 -> Store In Cache
+Return 4
+*/
 
 let g = {
   h() {
     return 2;
   },
   i(x) {
-    console.log(x);             // 2
+    console.log(x);
     return x * this.h();
   }
 };
@@ -45,40 +50,21 @@ let j = function (k) {
   };
 };
 g.i = j(g.i);
-console.log(g.i(2, 4));         // 2
-console.log('JS' + g.i(2, 4));  // JS2
+console.log(g.i(2, 4));
+/*
+function (k): function (g.i) - Original Function <> Before Wrapping
+l: Map - Cache
+Create Cache Key: m = "2,4"
+If Map Has Key: "2,4" -> Return Cached Value: 4
+Otherwise -> Call Original g.i(2,4) <> Use '2' Only Due To i(x)
+Map Sets Key(Input): "2,4" & Value(Output): 4 -> Store In Cache
+Return 4
+*/
 
 let o = function (p) {
   console.log(this.q + ':' + p);
 };
 
 let r = { q: 'JS' };
-let s = { q: 'JS' };
-o.call(r, 'JS');                // JS:JS
-o.call(s, 'JS');                // JS:JS
-
-let t = {
-  u(x) {
-    console.log(x);             // 5
-    return x + this.h();
-  },
-  h() {
-    return 4;
-  }
-};
-
-let v = function (w) {
-  let x = new Map();
-  return function () {
-    let y = [...arguments].join(',');
-    if (x.has(y)) {
-      return x.get(y);
-    }
-    let z = w.apply(this, arguments);
-    x.set(y, z);
-    return z;
-  };
-};
-t.u = v(t.u);
-console.log(t.u(5));            // 9
-console.log('JS' + t.u(5));     // JS9
+o.call(r, 'JS');  // JS:JS
+// call: Set | Override The Value Of this
