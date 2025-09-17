@@ -5,7 +5,7 @@ function c(d) {
   this.e = d;
 }
 c.prototype = a;
-let f = new c('JS');                         //  c.__proto__ == a
+let f = new c('JS');                         // c.__proto__ == a
 console.log(f.b);                            // True
 
 function g() { }                             // g.prototype = { constructor: g }
@@ -21,9 +21,10 @@ let l = new i('A');                          // A
 let m = new l.constructor('B');              // B
 
 function n() { }
-n.prototype = { o: true };
+n.prototype = { o: true };                   // Replace n.prototype = { constructor: n } -> constructor: Object
 let p = new n();
 console.log(p.constructor === n);            // False
+console.log(p.constructor === Object);       // True
 
 function q() { }
 q.prototype.r = true;
