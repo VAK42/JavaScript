@@ -34,3 +34,9 @@ console.log(j.h());    // False
 let k = j.filter(l => l >= 10);
 console.log('JS', k);  // JS [ 10, 50 ]
 console.log(k.h());    // Error
+
+/*
+Symbol.species: Derived Array Methods Return Instances Of The Subclass
+Symbol.species = Array: Derived Array Methods Return Plain Arrays
+=> Control The Type Of Objects Returned By Methods That Create New Instances
+*/
