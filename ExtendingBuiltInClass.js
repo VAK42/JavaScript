@@ -11,10 +11,11 @@ class a extends Array {
 }
 
 let d = new a(1, 2, 5, 10, 50);
-console.log(d.b());    // False
+console.log(d.b());           // False
 let e = d.filter(f => f >= 10);
-console.log('JS', e);  // JS a(2) [ 10, 50 ]
-console.log(e.b());    // False
+console.log(e instanceof a);  // True
+console.log('JS', e);         // JS a(2) [ 10, 50 ]
+console.log(e.b());           // False
 
 // PowerArray - Symbol.species
 class g extends Array {
@@ -30,10 +31,12 @@ class g extends Array {
 }
 
 let j = new g(1, 2, 5, 10, 50);
-console.log(j.h());    // False
+console.log(j.h());               // False
 let k = j.filter(l => l >= 10);
-console.log('JS', k);  // JS [ 10, 50 ]
-console.log(k.h());    // Error
+console.log(k instanceof g);      // False
+console.log(k instanceof Array);  // True
+console.log('JS', k);             // JS [ 10, 50 ]
+console.log(k.h());               // Error
 
 /*
 Symbol.species: Derived Array Methods Return Instances Of The Subclass
