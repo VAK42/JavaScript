@@ -11,11 +11,11 @@ function e() {
   let g = new Function('console.log(f)');
   return g;
 }
-e()();  // ReferenceError
+e()();  // ReferenceError - Does Not Have Access To The Outer Scope
 
 function h() {
   let i = 'JS';
   let j = function () { console.log(i); };
   return j;
 }
-h()();  // JS
+h()();  // JS - Within The Lexical Scope
