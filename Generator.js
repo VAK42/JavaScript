@@ -107,3 +107,8 @@ const K = J();
 console.log(K.next());        // {value: 8, done: false}
 console.log(K.return("JS"));  // {value: 'JS', done: true}
 console.log(K.next());        // {value: undefined, done: true}
+/*
+Generator: Create Functions That Can Pause Execution & Yield Values -> Resume When .next() Is Called
+yield: Pause The Generator & Return A Value -> The Generator Can Resume Execution After Yielding & Continue From The Last yield Statement
+yield*: Delegate Control To Another Generator | Iterable -> Allowing For Easy Composition
+*/
