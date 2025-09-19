@@ -27,7 +27,7 @@ console.log('Vak'[2].toUpperCase());  // K
 console.log('VAK42'.indexOf('v'));    // -1
 console.log('VAK42'.indexOf('V'));    // 0
 console.log('VAV'.indexOf('V', 1));   // 2
-console.log('VAK'.lastIndexOf('K'));  // 0
+console.log('VAK'.lastIndexOf('K'));  // 2
 console.log('VAK'.includes('V'));     // True
 console.log('VAK'.includes('4'));     // False
 console.log('VAK'.includes('V', 1));  // False
@@ -37,10 +37,10 @@ console.log('42VAK'.slice(2, 0));     // Not Supported
 console.log('42VAK'.slice(0, 2));     // 42
 console.log('42VAK'.slice(2));        // VAK
 console.log('42VAK'.slice(-2, -1));   // A
-console.log('AK42'.substring(2, 0));  // AK
+console.log('AK42'.substring(2, 0));  // AK - Start > End → Swap → substring(0, 2)
 console.log('AK42'.substring(0, 2));  // AK
 console.log('AK42'.substring(2));     // 42
-console.log('42'.substring(-2, -1));  // Not Supported
+console.log('42'.substring(-2, -1));  // Not Supported - Negative
 /*
 | Method          | Range               | Negative |
 |-----------------|---------------------|----------|
