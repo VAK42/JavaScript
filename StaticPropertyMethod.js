@@ -30,3 +30,7 @@ n[0].g();                                            // JS
 console.log(l.b);                                    // JS
 console.log(l.__proto__ === a);                      // True
 console.log(l.prototype.__proto__ === a.prototype);  // True
+/*
+Static Property: Shared Among All Instances & Can Be Accessed Through The Class Directly
+Static Method: Can Be Called On The Class Directly Without An Instance & Typically Operates On Class-Level Functionality
+*/
