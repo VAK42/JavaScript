@@ -25,3 +25,11 @@ let d = setInterval(() => console.log('VAK'), 1000);
 console.log(d);
 clearInterval(d);
 console.log(d);
+
+/*
+  Feature                 | SetTimeout()                           | SetInterval()                                              |
+  ----------------------- | -------------------------------------- | ---------------------------------------------------------- |
+  Execution               | Execute Once After A Delay             | Execute Repeatedly At The Specified Interval               |
+  Stopping                | Stop Automatically After Running Once  | Need To Be Stopped Manually With clearInterval()           |
+  Behavior After Execution| Only Execute Once Then Clear The Timer | Continue Executing At The Specified Interval Until Stopped |
+*/
