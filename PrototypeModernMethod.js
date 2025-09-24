@@ -1,9 +1,11 @@
 'use strict';
 
-let a ={x:4};
-let b ={y:2};
+let a = {x:4};
+let b = {y:2};
 console.log(Object.getPrototypeOf(a)===Object.prototype);  // True
+console.log(Object.getPrototypeOf(a));  // [Object: null prototype] {}
 Object.setPrototypeOf(a,b);
+console.log(Object.getPrototypeOf(a));  // { y: 2 }
 console.log(a.y);  // 2
 
 let c = Object.create(b);
